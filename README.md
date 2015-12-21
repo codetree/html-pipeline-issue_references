@@ -1,4 +1,4 @@
-# Html::Pipeline::IssueReferences
+# HTML::Pipeline::IssueReferences
 
 An HTML::Pipeline filter for auto-linking GitHub issue references.
 
