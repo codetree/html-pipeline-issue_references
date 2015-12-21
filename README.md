@@ -23,7 +23,7 @@ Or install it yourself as:
 Suppose you have some text that contains references to GitHub issues, like this:
 
 ```
-Fixes rails/rails#123.
+Fixes rails/rails#123
 ```
 
 This filter will automatically transform the GitHub-style issue references into
