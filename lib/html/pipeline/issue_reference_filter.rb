@@ -1,10 +1,14 @@
 require "html/pipeline"
-require "html/pipeline/issue_references/version"
+require "set"
 
 module HTML
   class Pipeline
     class IssueReferenceFilter < Filter
-      # Your code goes here...
+      VERSION = "0.1.0".freeze
+
+      def call
+
+      end
     end
   end
 end

@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'html/pipeline/issue_references/version'
+require 'html/pipeline/issue_reference_filter'
 
 Gem::Specification.new do |spec|
   spec.name          = "html-pipeline-issue_references"
-  spec.version       = HTML::Pipeline::IssueReferences::VERSION
+  spec.version       = HTML::Pipeline::IssueReferenceFilter::VERSION
   spec.authors       = ["Derrick Reimer"]
   spec.email         = ["derrickreimer@gmail.com"]
 
