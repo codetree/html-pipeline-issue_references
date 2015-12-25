@@ -37,7 +37,10 @@ pipeline = HTML::Pipeline.new [
   HTML::Pipeline::IssueReferenceFilter
 ]
 
-result = pipeline.call("Fixes rails/rails#123")
+result = pipeline.call("Fixes rails/rails#123", {
+  base_url: "https://github.com",
+  repository: "foo/bar"
+})
 
 puts result[:output].to_html
 ```
@@ -45,7 +48,7 @@ puts result[:output].to_html
 will output this:
 
 ```
-Fixes <a href="https://github.com/rails/rails/issues/123">rails/rails#123</a>
+Fixes <a href='https://github.com/rails/rails/issues/123' class='issue-reference'>rails/rails#123</a>
 ```
 
 ## Development
