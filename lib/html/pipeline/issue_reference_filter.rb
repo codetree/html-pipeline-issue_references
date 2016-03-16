@@ -14,9 +14,9 @@ module HTML
       # - codetree/feedback#123
       # - GH-123
       #
-      # See http://rubular.com/r/evB7RlvUfI
+      # See http://rubular.com/r/zM9MJl8SOC
       SHORT_PATTERN = /
-        (?:^|\W)                    # beginning of string or non-word char
+        (?<=^|\W)                    # beginning of string or non-word char
         (
           (?:(#{REPOSITORY_NAME})?    # repository name (optional)
           \#|(?:GH\-))(\d+)           # issue number
@@ -77,8 +77,7 @@ module HTML
       def issue_reference_filter(text, base_url = '/', default_repo = nil)
         self.class.issue_references_in(text) do |match, referenced_repo, number|
           repo = referenced_repo || default_repo
-          leading_whitespace = match.start_with?(' ') ? ' ' : ''
-          repo ? leading_whitespace + link_to_issue(repo, number, default_repo) : match
+          repo ? link_to_issue(repo, number, default_repo) : match
         end
       end
 

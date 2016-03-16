@@ -71,4 +71,19 @@ class HTML::Pipeline::IssueReferenceFilterTest < Minitest::Test
     assert_equal "<p>Fixes #{link}</p>",
       res.to_html
   end
+
+  def test_reference_in_parenthesis
+    body = "<p>(#123)</p>"
+    res  = filter(body, '/')
+
+    link = "<a href=\"/foo/bar/issues/123\" class=\"issue-reference\">#123</a>"
+    assert_equal "<p>(#{link})</p>", res.to_html
+
+    body = "<p>(#123/#456)</p>"
+    res  = filter(body, '/')
+
+    link1 = "<a href=\"/foo/bar/issues/123\" class=\"issue-reference\">#123</a>"
+    link2 = "<a href=\"/foo/bar/issues/456\" class=\"issue-reference\">#456</a>"
+    assert_equal "<p>(#{link1}/#{link2})</p>", res.to_html
+  end
 end
