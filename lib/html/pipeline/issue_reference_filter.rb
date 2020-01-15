@@ -4,8 +4,6 @@ require "set"
 module HTML
   class Pipeline
     class IssueReferenceFilter < Filter
-      VERSION = "1.0.0".freeze
-
       REPOSITORY_NAME = /[a-z0-9][a-z0-9\-]*\/[a-z0-9][a-z0-9\-_]*/ix
 
       # Match references of the form:

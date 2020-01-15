@@ -1,0 +1,76 @@
+version: 2.1
+
+environment: &environment
+  LOG_LEVEL: WARN
+
+jobs:
+  unit_tests:
+    working_directory: ~/repos/html-pipeline-issue_references
+
+    docker:
+      - image: circleci/ruby:2.6.4-buster-node
+        environment:
+          <<: *environment
+
+    steps:
+      - checkout
+
+      - run:
+          name: check dependencies
+          command: |
+            bundle -v
+            bundle exec ruby -v
+
+      - restore_cache:
+          keys:
+            - issue-references-bundle-v2-{{ checksum "html-pipeline-issue_references.gemspec" }}
+            - issue-references-bundle-v2-
+
+      - run:
+          name: install gems
+          command: bundle install && bundle clean
+
+      - save_cache:
+          key: issue-references-bundle-v2-{{ checksum "html-pipeline-issue_references.gemspec" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: run unit tests
+          command: bundle exec rake test
+
+      - store_test_results:
+          path: test_results
+
+  publish_to_rubygems:
+    working_directory: ~/repos/html-pipeline-issue_references
+
+    docker:
+      - image: circleci/ruby:2.6.4-buster-node
+        environment:
+          <<: *environment
+
+    steps:
+      - checkout
+
+      - run:
+          name: setup Rubygems
+          command: bash .circleci/setup-rubygems.sh
+
+      - run:
+          name: publish to Rubygems
+          command: |
+            gem build ping.gemspec
+            gem push "html-pipeline-issue_references-${$(git describe --abbrev=0 --tags):1}.gem"
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - unit_tests
+      - publish_to_rubygems:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/

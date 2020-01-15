@@ -1,13 +1,13 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'html/pipeline/issue_reference_filter'
+require 'html/pipeline/issue_references/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "html-pipeline-issue_references"
-  spec.version       = HTML::Pipeline::IssueReferenceFilter::VERSION
-  spec.authors       = ["Derrick Reimer"]
-  spec.email         = ["derrickreimer@gmail.com"]
+  spec.version       = HTML::Pipeline::IssueReferences::VERSION
+  spec.authors       = ['Codetree', 'Derrick Reimer']
+  spec.email         = ['support@codetree.com', 'derrickreimer@gmail.com']
 
   spec.summary       = %q{An HTML::Pipeline filter for auto-linking GitHub issue references}
   spec.description   = spec.summary
