@@ -60,7 +60,7 @@ jobs:
       - run:
           name: publish to Rubygems
           command: |
-            gem build html-pipeline-issue_references.gemspec
+            gem build ping.gemspec
             gem push "html-pipeline-issue_references-$(git describe --abbrev=0 --tags | cut -c 2-).gem"
 
 workflows:

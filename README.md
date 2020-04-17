@@ -64,8 +64,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
-
-## Updating RubyGems
-1. Ensure you have the desired branch `git checkout master && git fetch origin && git pull`
-2. Create an annotated tag `git tag -a v1.0.1 -m "msg with the tag"`
-3. Push tag to Github `github push --tags`
