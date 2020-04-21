@@ -52,10 +52,15 @@ Fixes <a href='https://github.com/rails/rails/issues/123' class='issue-reference
 ```
 
 ## Development
+After checking out the repo, run `bundle install` to install dependencies.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+To install this gem onto your local machine, run `bundle exec rake install`.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Testing
+Before beginning testing, be sure to run `bundle install && npm install`
+Ruby unit tests can be run with `bundle exec rake test`.
 
 ## Contributing
 
@@ -65,7 +70,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-## Updating RubyGems
-1. Ensure you have the desired branch `git checkout master && git fetch origin && git pull`
-2. Create an annotated tag `git tag -a v1.0.1 -m "msg with the tag"`
-3. Push tag to Github `github push --tags`
