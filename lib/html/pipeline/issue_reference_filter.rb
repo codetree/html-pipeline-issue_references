@@ -5,6 +5,7 @@ require 'set'
 
 module HTML
   class Pipeline
+    # identify github issue references using a customizable filter pattern
     class IssueReferenceFilter < Filter
       REPOSITORY_NAME = %r{[a-z0-9][a-z0-9\-]*/[a-z0-9][a-z0-9\-_]*}ix.freeze
 

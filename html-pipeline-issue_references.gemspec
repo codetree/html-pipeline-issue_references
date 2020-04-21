@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'html-pipeline', '~> 2.12'
+
   spec.add_development_dependency 'bundler', '~> 1.17'
   spec.add_development_dependency 'guard', '~> 2.16'
   spec.add_development_dependency 'guard-minitest', '~> 2.4'
