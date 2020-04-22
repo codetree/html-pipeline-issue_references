@@ -56,7 +56,12 @@ After checking out the repo, run `bundle install` to install dependencies.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
-To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To release a new version:
+1. Update the version number <ver> in `lib/html/pipeline/issue_references/version.rb`
+2. Run `gem git tag -a <ver> -m 'some msg'`
+3. Run `gem push --tags`
+
+Pushihg the git commits and tags will force CI to automatically push to [RubyGems.org](https://rubygems.org).
 
 ## Testing
 Before beginning testing, be sure to run `bundle install && npm install`
@@ -64,9 +69,4 @@ Ruby unit tests can be run with `bundle exec rake test`.
 
 ## Contributing
 
-1. Fork it ( https://github.com/codetree/html-pipeline-issue_references/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
+Read the [Contributing Guidelines](CONTRIBUTING.md) and open a Pull Request!
