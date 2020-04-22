@@ -1,4 +1,5 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'html/pipeline/issue_reference_filter'
+# frozen_string_literal: true
 
+$LOAD_PATH.unshift 'lib'
 require 'minitest/autorun'
+require 'html/pipeline/issue_reference_filter'
